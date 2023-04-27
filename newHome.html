@@ -52,6 +52,58 @@
         .container{
             padding-left: 2%;
         }
+        .box{
+            margin-top: 20px;
+            width: 50%;
+            height: 40%;
+            border: 1px solid black;
+            border-radius: 25px;
+        }
+        .rounded-input {
+            padding:10px;
+            margin-left: 5px;
+            margin-bottom: 10px;
+            width: 50%;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            line-height: 1.5;
+            resize: none;
+            overflow: auto;
+            font-family:monospace;
+            white-space: pre-wrap;
+        }
+        .rounded-input-note {
+            width: 90%;
+            height: 80px; /* or any height you want */
+            padding: 10px;
+            margin-left: 5px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            line-height: 1.5;
+            resize: none;
+            overflow: auto;
+            white-space: pre-wrap;
+            font-family:monospace;
+        }
+
+        .rounded-btn {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            width: 50%;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            margin-left: 5px;
+            margin-top: 0px;
+            border-radius: 5px;
+            font-family: monospace;
+        }
 
     </style>
     </head>
@@ -68,22 +120,35 @@
             <img src="icon.png" style="border-radius: 10%; height: 250px; width: 250px; display: inline;">
         </img>
         <h1 style="font-family:monospace; color: #000000; display: inline; position:absolute;">Arete</h1>
-        <p style="display: inline; position: absolute; padding-top: 40px;">njsdfvljsdvnfsnvlwnv lhdsnvlsnfvnv lesnvlhsdnvldansfnwvowesnvosef</p>
+        <p style="display: inline; position: absolute; padding-top: 40px; font-family:monospace;">njsdfvljsdvnfsnvlwnv lhdsnvlsnfvnv lesnvlhsdnvldansfnwvowesnvosef</p>
         <br></br>
         <div style="border-bottom: 1px solid black; width: 90%; padding-left: 10%;"></div>
         <img src="loopcalc.jpg" style="border-radius: 10%; height: 250px; width: 250px; display: inline;">
     </img>
     <h1 style="font-family:monospace; color: #000000; display: inline; position:absolute;">Loop Calculator</h1>
-    <p style="display: inline; position: absolute; padding-top: 40px;">njsdfvljsdvnfsnvlwnv lhdsnvlsnfvnv lesnvlhsdnvldansfnwvowesnvosef</p>
+    <p style="display: inline; position: absolute; padding-top: 40px; font-family:monospace;">njsdfvljsdvnfsnvlwnv lhdsnvlsnfvnv lesnvlhsdnvldansfnwvowesnvosef</p>
           </div>
           <div style="background-color: #FFFFFF;" class="container">
             <h1 id="about" style="font-family:monospace; color: #000000;">About</h1> 
              <img src="joe.jpeg" style="height: 200px; width: 200px; display: inline; padding-right: 25px; padding-left: 25px;">
          </img>
          <h1 style="font-family:monospace; color: #000000; display: inline; position:absolute;">Joe O'Connell</h1>
-         <p style="display: inline; position: absolute; padding-top: 40px;">njsdfvljsdvnfsnvlwnv lhdsnvlsnfvnv lesnvlhsdnvldansfnwvowesnvosef</p>
+         <p style="display: inline; position: absolute; padding-top: 40px; font-family:monospace;">njsdfvljsdvnfsnvlwnv lhdsnvlsnfvnv lesnvlhsdnvldansfnwvowesnvosef</p>
          <br></br>
          <div style="border-bottom: 1px solid black; width: 90%; padding-left: 10%;"></div>
            </div>
+           <div style="background-color: #FFFFFF;" class="container">
+            <!-- <div class="box"> -->
+                <h1 id="contact" style="font-family:monospace; color: #000000; margin-top: 10px; margin-left: 5px;">Contact</h1>
+                <input class="rounded-input" type="text" placeholder="Name">
+                <input class="rounded-input" type="email" placeholder="Email">
+                <textarea class="rounded-input-note" placeholder="What would you like to discuss?" rows="4"></textarea>
+                <br></br>
+                <button type="submit" class="rounded-btn">Submit</button>
+            <!-- </div> -->
+           <div style="height: 100px;"></div>
+            </div>
+
+        </div>
     </body>
 </html>
