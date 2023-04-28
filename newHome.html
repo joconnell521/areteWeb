@@ -1,36 +1,74 @@
 <html>
     <head>
         <title>Arete Mobile</title>
+        <script
+		src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+		crossorigin="anonymous"></script>
         <script>
             function submit(){
-                if(!nameIsValid() || !emailIsValid()){
-                    console.log("FAIL");
+                if(!nameIsValid() || !emailIsValid() || !contentIsValid()){
+                    console.log("Fail1");
                     return;
                 }
-                console.log("Success");
+                // var formData = {
+                //             "data":{
+                //             "Name": document.querySelector("#name-input").value,
+                //             "Email": document.querySelector("#email-input").value,
+                //             "Comment": document.querySelector("#content-input").value
+                //         }
+                //     };
+                    fetch("https://api.apispreadsheets.com/data/20kdVQnCFIidcgwH/", {
+                    method: "POST",
+                    body: JSON.stringify({
+                            "data":{
+                            "Name": document.querySelector("#name-input").value,
+                            "Email": document.querySelector("#email-input").value,
+                            "Comment": document.querySelector("#content-input").value
+                        }
+                    }),
+                }).then(res =>{
+                    if (res.status === 201){
+                        // SUCCESS
+                        alert("Thank you for filling out this form! The team will be emailing you shortly.")
+                    }
+                    else{
+                        // ERROR
+                        alert("There was an error :(")
+                    }
+                })
+
             }
             function nameIsValid(){
                 var name_input = document.querySelector("#name-input");
                 if(name_input.value.length <=0){
+                    alert("Please enter your name")
                     return false;
                 }
                 return true;
             }
             function emailIsValid(){
                 var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-                var email_input = document.querySelector("#email-input");
-                console.log(email_input.value);
-                if(email_input.value.length <=0){
+                var email_input = document.querySelector("#email-input").value;
+                if(email_input.length <=0){
+                    alert("Plese enter your email")
                     return false;
                 }
-                if(email_input.value.value.match(mailformat)){
-                    console.log("Success");
+                if(email_input.match(mailformat)){
                     return true;
                 }
                 else{
-                    console.log("FAIL");
+                    alert("Please enter a valid email");
                     return false;
                 }
+            }
+            function contentIsValid(){
+                var content_input = document.querySelector("#content-input");
+                if(content_input.value.length <=0){
+                    alert("Please let us know what you would liek to discuss");
+                    return false;
+                }
+                return true;
             }
         </script>
         <style>
@@ -174,15 +212,15 @@
          <br></br>
          <div style="border-bottom: 1px solid black; width: 90%; padding-left: 10%;"></div>
            </div>
-           <div style="background-color: #FFFFFF;" class="container">
+           <div style="background-color: #FFFFFF;" class="container" id="myForm">
                 <h1 id="contact" style="font-family:monospace; color: #000000; margin-top: 10px; margin-left: 5px;">Contact</h1>
                 <input class="rounded-input" type="text" placeholder="Name" id="name-input">
-                <input class="rounded-input" type="email" placeholder="Email" id="email-input">
+                <input class="rounded-input" type="email" placeholder="Email" id="email-input" >
                 <textarea class="rounded-input-note" placeholder="What would you like to discuss?" rows="4" id="content-input"></textarea>
                 <br></br>
                 <button type="submit" class="rounded-btn" onclick="submit()">Submit</button>
            <div style="height: 100px;"></div>
-            </div>
+           </div>
 
         </div>
     </body>
