@@ -1,6 +1,38 @@
 <html>
     <head>
         <title>Arete Mobile</title>
+        <script>
+            function submit(){
+                if(!nameIsValid() || !emailIsValid()){
+                    console.log("FAIL");
+                    return;
+                }
+                console.log("Success");
+            }
+            function nameIsValid(){
+                var name_input = document.querySelector("#name-input");
+                if(name_input.value.length <=0){
+                    return false;
+                }
+                return true;
+            }
+            function emailIsValid(){
+                var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                var email_input = document.querySelector("#email-input");
+                console.log(email_input.value);
+                if(email_input.value.length <=0){
+                    return false;
+                }
+                if(email_input.value.value.match(mailformat)){
+                    console.log("Success");
+                    return true;
+                }
+                else{
+                    console.log("FAIL");
+                    return false;
+                }
+            }
+        </script>
         <style>
         body{
             margin: 0;
@@ -144,11 +176,11 @@
            </div>
            <div style="background-color: #FFFFFF;" class="container">
                 <h1 id="contact" style="font-family:monospace; color: #000000; margin-top: 10px; margin-left: 5px;">Contact</h1>
-                <input class="rounded-input" type="text" placeholder="Name">
-                <input class="rounded-input" type="email" placeholder="Email">
-                <textarea class="rounded-input-note" placeholder="What would you like to discuss?" rows="4"></textarea>
+                <input class="rounded-input" type="text" placeholder="Name" id="name-input">
+                <input class="rounded-input" type="email" placeholder="Email" id="email-input">
+                <textarea class="rounded-input-note" placeholder="What would you like to discuss?" rows="4" id="content-input"></textarea>
                 <br></br>
-                <button type="submit" class="rounded-btn">Submit</button>
+                <button type="submit" class="rounded-btn" onclick="submit()">Submit</button>
            <div style="height: 100px;"></div>
             </div>
 
