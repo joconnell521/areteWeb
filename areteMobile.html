@@ -1,15 +1,11 @@
 <html>
-    <script
-		src="https://code.jquery.com/jquery-3.4.1.js"
-		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-		crossorigin="anonymous"></script>
+    
         <script>
             function scrollToSection(sectionId) {
                 const section = document.getElementById(sectionId);
                 section.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
             function submit(){
-                console.log("test");
                 if(!nameIsValid() || !emailIsValid() || !contentIsValid()){
                     console.log("Fail1");
                     return;
@@ -37,7 +33,6 @@
                         document.getElementById('email-input').value = '';
                         document.getElementById('content-input').value = '';
                         alert("Thank you for filling out this form! The team will be emailing you shortly.")
-
                     }
                     else{
                         // ERROR
@@ -78,6 +73,7 @@
                 return true;
             }
         </script>
+<<<<<<< HEAD
     
     <style>
         .img1{
